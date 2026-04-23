@@ -1,0 +1,18 @@
+Usuarios de test disponibles:
+                                                                                                                                                              
+  ┌──────────────────────┬─────────────┬──────────────────────┐                                   
+  │        Email         │ Contraseña  │         Rol          │                                                                                               
+  ├──────────────────────┼─────────────┼──────────────────────┤                                                                                                 │ maria@test.com       │ password123 │ Anunciante           │
+  ├──────────────────────┼─────────────┼──────────────────────┤                                                                                                 │ juan@test.com        │ password123 │ Estudiante           │
+  ├──────────────────────┼─────────────┼──────────────────────┤
+  │ carlos@test.com      │ password123 │ Anunciante           │
+  ├──────────────────────┼─────────────┼──────────────────────┤
+  │ ana@test.com         │ password123 │ Estudiante           │
+  ├──────────────────────┼─────────────┼──────────────────────┤
+  │ info@studenthome.com │ password123 │ Anunciante (Agencia) │
+  └──────────────────────┴─────────────┴──────────────────────┘
+
+  También existe: test@test.com / password123 (del seed simple)
+
+ │ maria@test.com       │ password123 │ Anunciante           │
+  ├──────────────────────┼─────────────┼──────────────────────┤                                                                                                 │ juan@test.com        │ password123 │ Estudiante  
