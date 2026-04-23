@@ -154,7 +154,7 @@ Monitoring: Sentry + Vercel Analytics
 ├── [✅] Sistema de mensajes integrado - Completado
 ├── [✅] Favoritos y alertas de nuevos anuncios
 ├── [ ] Geolocalización y mapas (Mapbox/Google Maps)
-├── [ ] Valoraciones y reviews de alojamientos
+├── [✅] Valoraciones y reviews de alojamientos - Completado con validación de contacto previo
 ├── [✅] Panel de gestión para anunciantes - Completado (crear, editar, eliminar, pausar)
 ├── [ ] SEO técnico y content marketing
 └── [ ] Analytics y eventos de conversión
@@ -265,7 +265,10 @@ Monitoring: Sentry + Vercel Analytics
 | `/dashboard/estudiante` | Panel estudiante | ✅ |
 | `/dashboard/anunciante` | Panel anunciante | ✅ |
 | `/dashboard/crear-anuncio` | Wizard crear anuncio | ✅ |
-| `/dashboard/mis-anuncios` | Mis anuncios | 🚧 |
+| `/dashboard/mis-anuncios` | Mis anuncios | ✅ |
+| `/dashboard/favoritos` | Favoritos guardados | ✅ |
+| `/dashboard/alertas` | Alertas de búsqueda | ✅ |
+| `/dashboard/mensajes` | Bandeja de mensajes | ✅ |
 
 ---
 
@@ -442,7 +445,7 @@ npm run db:seed
 
 ## 📋 Estado Actual del Proyecto
 
-### Última actualización: 22 Abril 2026
+### Última actualización: 23 Abril 2026
 
 #### ✅ Implementado
 - **Páginas públicas**: Landing, Buscador, Tablón, Universidades
@@ -456,18 +459,21 @@ npm run db:seed
 - **Datos de prueba**: Seed con 3 anuncios de prueba en Supabase
 - **Buscador**: Página `/buscar` con filtros avanzados funcionando
 - **Componentes de marketplace**: ListingCard, ListingMap, filtros interactivos
+- **Sistema de reviews**: API `/api/listings/[id]/reviews` con validación de contacto previo
+- **Mis anuncios**: Listado completo para anunciantes (crear, editar, eliminar, pausar)
+- **Sistema de favoritos**: Guardar y listar alojamientos favoritos
+- **Sistema de alertas**: Crear alertas personalizadas de búsqueda
+- **Mensajería**: API completa de conversaciones entre usuarios
 
 #### 🚧 En desarrollo
-- Sistema de mensajería entre usuarios (API routes creadas)
-- Listado "Mis anuncios" para anunciantes
+- UI de mensajería (chat en tiempo real)
 - Subida real de imágenes (actualmente mock URLs)
 
 #### 📅 Próximas tareas
-1. Completar sistema de mensajería (UI + WebSocket)
-2. Vista de gestión de anuncios (editar, eliminar, pausar)
-3. Integración de subida de imágenes real (Cloudinary/Cloudflare)
-4. Favoritos y alertas
-5. Integración de pagos con Stripe
+1. Integración de subida de imágenes real (Cloudinary/Cloudflare)
+2. Geolocalización y mapas
+3. Integración de pagos con Stripe
+4. SEO técnico y content marketing
 
 ---
 
@@ -513,3 +519,12 @@ taskkill //F //PID <PID>  # Matar proceso
 1. Verificar que el seed se ejecutó correctamente en Supabase
 2. Comprobar que `DATABASE_URL` en `.env` es correcta
 3. Testear API directamente: `curl http://localhost:3002/api/listings`
+
+---
+
+## 🔗 Repositorio
+
+**GitHub**: https://github.com/vtornet/pisocampus
+- Branch principal: `main`
+- Primer commit: 23 Abril 2026
+- Proyecto inicializado y conectado a remote origin
