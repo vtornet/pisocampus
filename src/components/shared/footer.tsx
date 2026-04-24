@@ -10,11 +10,11 @@ export function Footer() {
             <div className="flex items-center space-x-2">
               <img
                 src="/logo.png"
-                alt="Pio Campus"
+                alt="PisoCampus"
                 className="h-8 w-8 object-contain"
               />
               <span className="font-semibold">
-                <span className="text-blue-600">Pio</span><span className="text-green-600"> Campus</span>
+                <span className="text-blue-600">Piso</span><span className="text-green-600">Campus</span>
               </span>
             </div>
             <p className="text-sm text-gray-600">
@@ -117,7 +117,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-600">
-          <p>&copy; {new Date().getFullYear()} <span className="text-blue-600">Pio</span><span className="text-green-600"> Campus</span>. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} <span className="text-blue-600">Piso</span><span className="text-green-600">Campus</span>. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

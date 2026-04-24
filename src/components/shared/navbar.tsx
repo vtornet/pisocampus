@@ -32,11 +32,11 @@ export function Navbar() {
         <Link href="/" className="flex items-center space-x-2">
           <img
             src="/logo.png"
-            alt="Pio Campus"
+            alt="PisoCampus"
             className="h-10 w-10 object-contain"
           />
           <span className="hidden font-bold sm:inline-block">
-            <span className="text-blue-600">Pio</span><span className="text-green-600"> Campus</span>
+            <span className="text-blue-600">Piso</span><span className="text-green-600">Campus</span>
           </span>
         </Link>
 

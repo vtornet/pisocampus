@@ -11,8 +11,8 @@ export const metadataBase = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://
 
 export const metadata: Metadata = {
   title: {
-    default: 'Pio Campus - Encuentra tu piso ideal',
-    template: '%s | Pio Campus',
+    default: 'PisoCampus - Encuentra tu piso ideal',
+    template: '%s | PisoCampus',
   },
   description: 'Plataforma gratuita para estudiantes que buscan alojamiento en España. Busca por universidad, ciudad o barrio y encuentra compañeros de piso. Sin comisiones ni fees.',
   keywords: [
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     'habitación valencia',
     'alojamiento erasmus',
   ],
-  authors: [{ name: 'Pio Campus' }],
-  creator: 'Pio Campus',
-  publisher: 'Pio Campus',
+  authors: [{ name: 'PisoCampus' }],
+  creator: 'PisoCampus',
+  publisher: 'PisoCampus',
   robots: {
     index: true,
     follow: true,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Pio Campus',
+    title: 'PisoCampus',
   },
   icons: {
     icon: '/icon.svg',
@@ -55,29 +55,29 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'Pio Campus',
-    title: 'Pio Campus - Encuentra tu piso ideal',
+    siteName: 'PisoCampus',
+    title: 'PisoCampus - Encuentra tu piso ideal',
     description: 'Plataforma gratuita para estudiantes que buscan alojamiento en España. Busca por universidad, ciudad o barrio y encuentra compañeros de piso.',
     images: [
       {
         url: '/og-image.svg',
         width: 1200,
         height: 630,
-        alt: 'Pio Campus',
+        alt: 'PisoCampus',
       },
     ],
     locale: 'es_ES',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pio Campus - Encuentra tu piso ideal',
+    title: 'PisoCampus - Encuentra tu piso ideal',
     description: 'Plataforma gratuita para estudiantes que buscan alojamiento en España.',
     images: ['/og-image.svg'],
   },
   alternates: {
-    canonical: 'https://pio campus.com',
+    canonical: 'https://pisocampus.com',
     languages: {
-      'es-ES': 'https://pio campus.com',
+      'es-ES': 'https://pisocampus.com',
     },
   },
 }

@@ -20,7 +20,7 @@ async function getListing(id: string) {
     neighborhood: 'Moncloa',
     images: ['https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200'],
     availableFrom: new Date(),
-    url: `https://pio campus.com/anuncio/${id}`,
+    url: `https://pisocampus.com/anuncio/${id}`,
   }
 }
 
