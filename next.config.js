@@ -11,8 +11,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
+  // Force webpack instead of Turbopack (next-pwa compatibility)
+  webpack: (config, { isServer }) => {
+    return config
   },
   images: {
     remotePatterns: [
