@@ -157,14 +157,14 @@ export default function HomePage() {
               Únete a cientos de anunciantes que ya confían en nosotros. Publica tu anuncio y llega a miles de estudiantes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/anunciantes/planes">
+              <Link href="/registro">
                 <Button size="lg" variant="default">
-                  Ver planes para anunciantes
+                  Crear cuenta anunciante
                 </Button>
               </Link>
-              <Link href="/anunciantes/registro">
+              <Link href="/dashboard">
                 <Button size="lg" variant="outline">
-                  Publicar anuncio gratis
+                  Ir al dashboard
                 </Button>
               </Link>
             </div>

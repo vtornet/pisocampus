@@ -53,7 +53,7 @@ export function Footer() {
                   Tablón de compañeros
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/consejos" className="hover:text-gray-900">
                   Consejos y guías
                 </Link>
@@ -62,7 +62,7 @@ export function Footer() {
                 <Link href="/faq" className="hover:text-gray-900">
                   Preguntas frecuentes
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -71,13 +71,13 @@ export function Footer() {
             <h3 className="mb-3 font-semibold text-gray-900">Para Anunciantes</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link href="/anunciantes/planes" className="hover:text-gray-900">
-                  Planes y precios
+                <Link href="/dashboard" className="hover:text-gray-900">
+                  Panel de control
                 </Link>
               </li>
-              <li>
-                <Link href="/anunciantes/registro" className="hover:text-gray-900">
-                  Publicar anuncio
+              {/* <li>
+                <Link href="/anunciantes/planes" className="hover:text-gray-900">
+                  Planes y precios
                 </Link>
               </li>
               <li>
@@ -89,7 +89,7 @@ export function Footer() {
                 <Link href="/contacto" className="hover:text-gray-900">
                   Contacto
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 

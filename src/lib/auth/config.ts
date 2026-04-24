@@ -1,10 +1,24 @@
 import type { NextAuthConfig } from 'next-auth'
 import Google from 'next-auth/providers/google'
 import Credentials from 'next-auth/providers/credentials'
-import { db } from '@/lib/db'
-import { users } from '@/lib/db/schema'
-import { eq } from 'drizzle-orm'
 import bcrypt from 'bcryptjs'
+
+// Solo importar DB si está disponible
+let db: any
+let users: any
+let eq: any
+
+try {
+  if (process.env.DATABASE_URL) {
+    const dbModule = require('@/lib/db')
+    db = dbModule.db
+    users = dbModule.users
+    const drizzleModule = require('drizzle-orm')
+    eq = drizzleModule.eq
+  }
+} catch (e) {
+  console.warn('DB not available for auth')
+}
 
 export const authConfig: NextAuthConfig = {
   session: {
@@ -17,10 +31,12 @@ export const authConfig: NextAuthConfig = {
   },
 
   providers: [
-    Google({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
+    ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
+      ? [Google({
+          clientId: process.env.GOOGLE_CLIENT_ID,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        })]
+      : []),
 
     Credentials({
       credentials: {
@@ -32,8 +48,7 @@ export const authConfig: NextAuthConfig = {
           return null
         }
 
-        // Skip DB check during build
-        if (!db) {
+        if (!db || !users || !eq) {
           console.warn('DB not available - auth check skipped')
           return null
         }
@@ -49,7 +64,6 @@ export const authConfig: NextAuthConfig = {
         }
 
         if (!user[0].password) {
-          // User registered with OAuth
           return null
         }
 
