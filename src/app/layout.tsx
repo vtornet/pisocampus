@@ -75,9 +75,9 @@ export const metadata: Metadata = {
     images: ['/og-image.svg'],
   },
   alternates: {
-    canonical: 'https://pisocampu.com',
+    canonical: 'https://pisocampus.com',
     languages: {
-      'es-ES': 'https://pisocampu.com',
+      'es-ES': 'https://pisocampus.com',
     },
   },
 }

@@ -186,7 +186,7 @@ export default function CookiesPage() {
                 <strong>Email:</strong> contact@appstracta.app<br />
                 <strong>Sitio web:</strong>{' '}
                 <Link href="/" className="text-blue-600 hover:underline">
-                  www.pisocampu.com
+                  www.pisocampus.com
                 </Link>
               </p>
             </section>

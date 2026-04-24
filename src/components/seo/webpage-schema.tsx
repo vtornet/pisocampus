@@ -29,7 +29,7 @@ export function WebPageSchema({
       name: 'PisoCampus',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://pisocampu.com/icon-192.png',
+        url: 'https://pisocampus.com/icon-192.png',
       },
     },
   }
