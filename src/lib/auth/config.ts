@@ -1,10 +1,20 @@
 import type { NextAuthConfig } from 'next-auth'
-import Google from 'next-auth/providers/google'
 import Credentials from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 
-// Verificar si DB está disponible sin importar
-const hasDb = !!process.env.DATABASE_URL
+// Imports estáticos para evitar problemas en producción
+let db: any, users: any, eq: any
+
+try {
+  const dbModule = require('@/lib/db')
+  db = dbModule.db
+  const schemaModule = require('@/lib/db/schema')
+  users = schemaModule.users
+  const drizzleModule = require('drizzle-orm')
+  eq = drizzleModule.eq
+} catch (e) {
+  console.warn('Auth: DB modules not loaded')
+}
 
 export const authConfig: NextAuthConfig = {
   session: {
@@ -17,67 +27,61 @@ export const authConfig: NextAuthConfig = {
   },
 
   providers: [
-    ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
-      ? [Google({
-          clientId: process.env.GOOGLE_CLIENT_ID,
-          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        })]
-      : []),
+    // Provider de credenciales (solo funciona si hay DB)
+    Credentials({
+      id: 'credentials',
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          return null
+        }
 
-    // Solo incluir Credentials si hay DB disponible
-    ...(hasDb
-      ? [Credentials({
-          credentials: {
-            email: { label: 'Email', type: 'email' },
-            password: { label: 'Password', type: 'password' },
-          },
-          async authorize(credentials) {
-            if (!credentials?.email || !credentials?.password) {
-              return null
-            }
+        if (!db || !users || !eq) {
+          console.warn('Auth: DB not available')
+          return null
+        }
 
-            // Import dinámico solo cuando se necesita
-            const { db } = await import('@/lib/db')
-            const { users } = await import('@/lib/db/schema')
-            const { eq } = await import('drizzle-orm')
+        try {
+          const user = await db
+            .select()
+            .from(users)
+            .where(eq(users.email, credentials.email as string))
+            .limit(1)
 
-            if (!db) {
-              return null
-            }
+          if (!user[0]) {
+            return null
+          }
 
-            const user = await db
-              .select()
-              .from(users)
-              .where(eq(users.email, credentials.email as string))
-              .limit(1)
+          if (!user[0].password) {
+            return null
+          }
 
-            if (!user[0]) {
-              return null
-            }
+          const isValid = await bcrypt.compare(
+            credentials.password as string,
+            user[0].password
+          )
 
-            if (!user[0].password) {
-              return null
-            }
+          if (!isValid) {
+            return null
+          }
 
-            const isValid = await bcrypt.compare(
-              credentials.password as string,
-              user[0].password
-            )
-
-            if (!isValid) {
-              return null
-            }
-
-            return {
-              id: user[0].id,
-              email: user[0].email,
-              name: user[0].name,
-              image: user[0].image,
-              role: user[0].role,
-            }
-          },
-        })]
-      : []),
+          return {
+            id: user[0].id,
+            email: user[0].email,
+            name: user[0].name,
+            image: user[0].image,
+            role: user[0].role,
+          }
+        } catch (error) {
+          console.error('Auth error:', error)
+          return null
+        }
+      },
+    }),
   ],
 
   callbacks: {
