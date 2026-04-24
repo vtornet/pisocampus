@@ -9,5 +9,8 @@
     "startCommand": "npm start",
     "healthcheckPath": "/api/health",
     "restartPolicyType": "ON_FAILURE"
+  },
+  "variables": {
+    "NODE_VERSION": "20"
   }
 }
