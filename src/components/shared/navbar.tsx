@@ -13,10 +13,44 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Menu, Search, LogOut, Settings, User, LayoutDashboard } from 'lucide-react'
 import { useAuth } from '@/hooks/use-auth'
+import { useEffect, useState } from 'react'
 
 export function Navbar() {
   const router = useRouter()
-  const { user, isAuthenticated } = useAuth()
+  const { user, isAuthenticated, loading } = useAuth()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Evitar hydratación mismatch
+  if (!mounted) {
+    return (
+      <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          <Link href="/" className="flex items-center space-x-2">
+            <img
+              src="/logo.png"
+              alt="PisoCampus"
+              className="h-10 w-10 object-contain"
+            />
+            <span className="hidden font-bold sm:inline-block">
+              <span className="text-blue-600">Piso</span><span className="text-green-600">Campus</span>
+            </span>
+          </Link>
+          <div className="flex items-center space-x-2">
+            <Link href="/login">
+              <Button variant="ghost" size="sm">Entrar</Button>
+            </Link>
+            <Link href="/registro">
+              <Button size="sm">Registrarse</Button>
+            </Link>
+          </div>
+        </div>
+      </header>
+    )
+  }
 
   const userInitials = user?.name
     ?.split(' ')

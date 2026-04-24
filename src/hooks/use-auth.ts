@@ -8,13 +8,14 @@ export function useAuth() {
   const { data: session, status, update } = useSession()
 
   const user: User | null = useMemo(() => {
+    // Si no hay sesión o hay error, retornar null
     if (!session?.user) return null
 
     return {
-      id: session.user.id,
+      id: session.user.id || '',
       email: session.user.email || '',
       name: session.user.name || '',
-      role: session.user.role,
+      role: session.user.role || 'student',
       avatar: session.user.image || undefined,
       createdAt: new Date(),
       updatedAt: new Date(),
