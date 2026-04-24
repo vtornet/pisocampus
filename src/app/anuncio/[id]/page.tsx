@@ -40,6 +40,7 @@ interface Listing {
   neighborhood?: string
   address?: string
   postalCode?: string
+  coordinates?: { lat: number; lng: number } | null
   bedrooms?: number | null
   bathrooms?: number | null
   area?: number | null
@@ -523,7 +524,7 @@ export default function AnuncioPage() {
                 )}
                 <div className="aspect-[16/9] rounded-lg overflow-hidden bg-gray-100">
                   <ListingMap
-                    center={{ lat: 40.4168, lng: -3.7038 }}
+                    center={listing.coordinates || { lat: 40.4168, lng: -3.7038 }}
                     zoom={15}
                     className="h-full w-full"
                     markers={[
@@ -532,7 +533,7 @@ export default function AnuncioPage() {
                         title: listing.title,
                         price: listing.price,
                         type: listing.type,
-                        coordinates: { lat: 40.4168, lng: -3.7038 },
+                        coordinates: listing.coordinates || { lat: 40.4168, lng: -3.7038 },
                         coverImage: listing.coverImage,
                       },
                     ]}
