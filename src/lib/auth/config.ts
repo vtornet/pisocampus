@@ -7,12 +7,17 @@ import { users, accounts, sessions } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
 import bcrypt from 'bcryptjs'
 
+// Skip adapter during build when DB is not available
+const adapter = process.env.DATABASE_URL && db
+  ? DrizzleAdapter(db, {
+      usersTable: users,
+      accountsTable: accounts,
+      sessionsTable: sessions,
+    })
+  : undefined
+
 export const authConfig: NextAuthConfig = {
-  adapter: DrizzleAdapter(db, {
-    usersTable: users,
-    accountsTable: accounts,
-    sessionsTable: sessions,
-  }),
+  ...(adapter ? { adapter } : {}),
 
   session: {
     strategy: 'jwt',
@@ -36,6 +41,12 @@ export const authConfig: NextAuthConfig = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
+          return null
+        }
+
+        // Skip DB check during build
+        if (!db) {
+          console.warn('DB not available - auth check skipped')
           return null
         }
 
