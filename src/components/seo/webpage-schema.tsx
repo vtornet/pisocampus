@@ -26,10 +26,10 @@ export function WebPageSchema({
     dateModified: dateModified?.toISOString(),
     publisher: {
       '@type': 'Organization',
-      name: 'PisoCampus',
+      name: 'Pio Campus',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://pisocampus.com/icon-192.png',
+        url: 'https://pio campus.com/icon-192.png',
       },
     },
   }

@@ -24,7 +24,7 @@ export default function PrivacidadPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">1. Responsable del Tratamiento</h2>
               <p>
-                <strong>PISOCAMPUS</strong> (en adelante, el "Responsable") es responsable del
+                <strong>Pio Campus</strong> (en adelante, el "Responsable") es responsable del
                 tratamiento de los datos personales recogidos a través de la plataforma y se compromete a
                 su protección y confidencialidad.
               </p>

@@ -35,7 +35,7 @@ export default function CookiesPage() {
 
               <h3 className="text-xl font-medium mt-6 mb-2">2.1. Según su entidad</h3>
               <ul className="list-disc pl-6 mt-2">
-                <li><strong>Cookies propias:</strong> Enviadas por PisoCampus</li>
+                <li><strong>Cookies propias:</strong> Enviadas por Pio Campus</li>
                 <li><strong>Cookies de terceros:</strong> Enviadas por servicios externos (Google Analytics, etc.)</li>
               </ul>
 
@@ -186,7 +186,7 @@ export default function CookiesPage() {
                 <strong>Email:</strong> contact@appstracta.app<br />
                 <strong>Sitio web:</strong>{' '}
                 <Link href="/" className="text-blue-600 hover:underline">
-                  www.pisocampus.com
+                  www.pio campus.com
                 </Link>
               </p>
             </section>

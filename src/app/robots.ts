@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://pisocampus.com'
+  const baseUrl = 'https://pio campus.com'
 
   return {
     rules: [

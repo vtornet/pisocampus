@@ -25,7 +25,7 @@ export async function geocodeAddress(
       `https://nominatim.openstreetmap.org/search?format=json&q=${encodedQuery}&limit=1`,
       {
         headers: {
-          'User-Agent': 'PisoCampus', // Required by Nominatim usage policy
+          'User-Agent': 'Pio Campus', // Required by Nominatim usage policy
         },
       }
     )

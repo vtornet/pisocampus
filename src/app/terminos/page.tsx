@@ -24,7 +24,7 @@ export default function TerminosPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">1. Introducción</h2>
               <p>
-                Bienvenido a <strong>PisoCampus</strong>, una plataforma digital que facilita
+                Bienvenido a <strong>Pio Campus</strong>, una plataforma digital que facilita
                 la búsqueda y publicación de alojamientos para estudiantes universitarios en España.
                 Al acceder o utilizar esta plataforma, aceptas estar vinculado por los presentes Términos
                 y Condiciones de Uso.
@@ -34,7 +34,7 @@ export default function TerminosPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">2. Objeto de la Plataforma</h2>
               <p>
-                PisoCampus es un marketplace que conecta a estudiantes universitarios con
+                Pio Campus es un marketplace que conecta a estudiantes universitarios con
                 anunciantes de alojamientos (particulares, agencias inmobiliarias y residencias estudiantiles).
                 La plataforma actúa como intermediario en la comunicación entre ambas partes.
               </p>
@@ -142,7 +142,7 @@ export default function TerminosPage() {
               <h2 className="text-2xl font-semibold mb-4">8. Propiedad Intelectual</h2>
               <p>
                 Todos los elementos de la plataforma (diseño, textos, gráficos, logos, software, bases de
-                datos) son propiedad de PisoCampus o de terceros que han autorizado su uso.
+                datos) son propiedad de Pio Campus o de terceros que han autorizado su uso.
               </p>
               <p className="mt-2">
                 Queda prohibida la reproducción, modificación, distribución o transmisión de cualquier
@@ -153,7 +153,7 @@ export default function TerminosPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">9. Responsabilidad</h2>
               <p>
-                PisoCampus actúa como intermediario y no participa en las transacciones
+                Pio Campus actúa como intermediario y no participa en las transacciones
                 arrendaticias que se formalicen entre usuarios. La plataforma no se hace responsable de:
               </p>
               <ul className="list-disc pl-6 mt-2">
@@ -175,7 +175,7 @@ export default function TerminosPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">11. Modificación de los Términos</h2>
               <p>
-                PisoCampus se reserva el derecho de modificar estos términos en cualquier momento.
+                Pio Campus se reserva el derecho de modificar estos términos en cualquier momento.
                 Los cambios serán notificados a los usuarios con al menos 15 días de antelación a su entrada en vigor.
               </p>
             </section>
