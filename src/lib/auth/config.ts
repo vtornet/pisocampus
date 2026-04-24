@@ -2,23 +2,10 @@ import type { NextAuthConfig } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 
-// Imports estáticos para evitar problemas en producción
-let db: any, users: any, eq: any
-
-try {
-  const dbModule = require('@/lib/db')
-  db = dbModule.db
-  const schemaModule = require('@/lib/db/schema')
-  users = schemaModule.users
-  const drizzleModule = require('drizzle-orm')
-  eq = drizzleModule.eq
-} catch (e) {
-  console.warn('Auth: DB modules not loaded')
-}
-
 export const authConfig: NextAuthConfig = {
   session: {
     strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60, // 30 days
   },
 
   pages: {
@@ -27,10 +14,7 @@ export const authConfig: NextAuthConfig = {
   },
 
   providers: [
-    // Provider de credenciales (solo funciona si hay DB)
     Credentials({
-      id: 'credentials',
-      name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
@@ -40,29 +24,42 @@ export const authConfig: NextAuthConfig = {
           return null
         }
 
-        if (!db || !users || !eq) {
-          console.warn('Auth: DB not available')
-          return null
-        }
-
         try {
-          const user = await db
-            .select()
+          // Import estático
+          const { db } = require('@/lib/db')
+          const { users } = require('@/lib/db/schema')
+          const { eq } = require('drizzle-orm')
+
+          if (!db) {
+            console.error('Auth: DB not available')
+            return null
+          }
+
+          const result = await db
+            .select({
+              id: users.id,
+              email: users.email,
+              name: users.name,
+              image: users.image,
+              password: users.password,
+              role: users.role,
+            })
             .from(users)
             .where(eq(users.email, credentials.email as string))
             .limit(1)
 
-          if (!user[0]) {
+          const user = result[0]
+          if (!user) {
             return null
           }
 
-          if (!user[0].password) {
+          if (!user.password) {
             return null
           }
 
           const isValid = await bcrypt.compare(
             credentials.password as string,
-            user[0].password
+            user.password
           )
 
           if (!isValid) {
@@ -70,14 +67,14 @@ export const authConfig: NextAuthConfig = {
           }
 
           return {
-            id: user[0].id,
-            email: user[0].email,
-            name: user[0].name,
-            image: user[0].image,
-            role: user[0].role,
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            image: user.image,
+            role: user.role,
           }
         } catch (error) {
-          console.error('Auth error:', error)
+          console.error('Auth authorize error:', error)
           return null
         }
       },
@@ -85,25 +82,22 @@ export const authConfig: NextAuthConfig = {
   ],
 
   callbacks: {
-    async jwt({ token, user, trigger, session }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id
-        token.role = (user as any).role
+        token.role = user.role
       }
-
-      if (trigger === 'update' && session) {
-        token = { ...token, ...session }
-      }
-
       return token
     },
 
     async session({ session, token }) {
-      if (token && session.user) {
+      if (session.user) {
         session.user.id = token.id as string
         session.user.role = token.role as 'student' | 'advertiser' | 'admin'
       }
       return session
     },
   },
+
+  debug: process.env.NODE_ENV === 'development',
 }
