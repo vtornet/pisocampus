@@ -4,15 +4,16 @@ import * as schema from './schema'
 
 const connectionString = process.env.DATABASE_URL || ''
 
-if (!connectionString) {
-  throw new Error('DATABASE_URL environment variable is not set')
+// Skip DB connection during build
+if (!connectionString && typeof window === 'undefined') {
+  console.warn('DATABASE_URL not set - DB operations will fail')
 }
 
 // Client para queries - aumentado max para permitir múltiples conexiones simultáneas
-const queryClient = postgres(connectionString, {
+const queryClient = connectionString ? postgres(connectionString, {
   max: 10,
   idle_timeout: 20,
   connect_timeout: 10,
-})
+}) : null as any
 
-export const db = drizzle(queryClient, { schema })
+export const db = queryClient ? drizzle(queryClient, { schema }) : null as any
