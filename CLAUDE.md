@@ -153,7 +153,7 @@ Monitoring: Sentry + Vercel Analytics
 ├── [✅] Buscador avanzado (universidad, precio, servicios) - Implementado
 ├── [✅] Sistema de mensajes integrado - Completado
 ├── [✅] Favoritos y alertas de nuevos anuncios
-├── [ ] Geolocalización y mapas (Mapbox/Google Maps)
+├── [✅] Geolocalización y mapas (Leaflet + OpenStreetMap) - Completado
 ├── [✅] Valoraciones y reviews de alojamientos - Completado con validación de contacto previo
 ├── [✅] Panel de gestión para anunciantes - Completado (crear, editar, eliminar, pausar)
 ├── [ ] SEO técnico y content marketing
@@ -466,14 +466,13 @@ npm run db:seed
 - **Mensajería**: API completa de conversaciones entre usuarios
 
 #### 🚧 En desarrollo
-- UI de mensajería (chat en tiempo real)
 - Subida real de imágenes (actualmente mock URLs)
 
 #### 📅 Próximas tareas
 1. Integración de subida de imágenes real (Cloudinary/Cloudflare)
-2. Geolocalización y mapas
-3. Integración de pagos con Stripe
-4. SEO técnico y content marketing
+2. SEO técnico y content marketing
+3. Analytics y eventos de conversión
+4. Integración de pagos con Stripe (FASE 3)
 
 ---
 
