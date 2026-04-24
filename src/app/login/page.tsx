@@ -59,7 +59,7 @@ export default function LoginPage() {
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
           <img
             src="/logo.png"
-            alt="PisoCampu"
+            alt="PisoCampus"
             className="h-12 w-12 object-contain"
           />
           <span className="text-2xl font-bold">

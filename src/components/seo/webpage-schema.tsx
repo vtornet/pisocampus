@@ -26,7 +26,7 @@ export function WebPageSchema({
     dateModified: dateModified?.toISOString(),
     publisher: {
       '@type': 'Organization',
-      name: 'PisoCampu',
+      name: 'PisoCampus',
       logo: {
         '@type': 'ImageObject',
         url: 'https://pisocampu.com/icon-192.png',
