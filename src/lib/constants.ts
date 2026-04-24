@@ -117,3 +117,14 @@ export const ADVERTISER_PLANS = [
     limits: { listings: -1, images: -1 },
   },
 ] as const
+
+// Alias para compatibilidad
+export const cities = SPANISH_CITIES
+
+// Labels para tipos de alojamiento (array format para select)
+export const typeLabels = [
+  { value: 'room', label: 'Habitación' },
+  { value: 'apartment', label: 'Piso completo' },
+  { value: 'studio', label: 'Estudio' },
+  { value: 'shared', label: 'Compartir piso' },
+] as const

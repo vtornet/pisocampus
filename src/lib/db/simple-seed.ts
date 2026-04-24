@@ -130,7 +130,7 @@ async function seed() {
 
   for (const listing of listingsData) {
     try {
-      await db.insert(listings).values(listing)
+      await db.insert(listings).values(listing as any)
       console.log(`  ✓ Listing created: ${listing.title}`)
     } catch (e: any) {
       if (e.code === '23505') {

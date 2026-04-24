@@ -150,7 +150,7 @@ export default function CreateListingPage() {
     setFormData((prev) => ({ ...prev, images: newImages }))
 
     newImages.forEach((file) => {
-      if (!file.preview) {
+      if (!(file as any).preview) {
         const reader = new FileReader()
         reader.onloadend = () => {
           setImagePreviews((prev) => [...prev, reader.result as string])

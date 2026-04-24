@@ -100,7 +100,7 @@ async function seed() {
 
   for (const user of userData) {
     try {
-      await db.insert(users).values(user)
+      await db.insert(users).values(user as any)
       console.log(`  ✓ User created: ${user.email}`)
     } catch (error: any) {
       if (error.code === '23505') { // Unique violation
@@ -150,7 +150,7 @@ async function seed() {
 
   for (const advertiser of advertiserData) {
     try {
-      await db.insert(advertisers).values(advertiser)
+      await db.insert(advertisers).values(advertiser as any)
       console.log(`  ✓ Advertiser created: ${advertiser.name}`)
     } catch (error: any) {
       if (error.code === '23505') { // Unique violation
@@ -401,7 +401,7 @@ async function seed() {
   ]
 
   for (const listing of listingsData) {
-    await db.insert(listings).values(listing).onConflictDoNothing()
+    await db.insert(listings).values(listing as any).onConflictDoNothing()
   }
 
   console.log(`✅ Seed completed! Created:`)

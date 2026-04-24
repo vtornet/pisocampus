@@ -109,7 +109,7 @@ export default function PerfilPage() {
                   <h2 className="text-xl font-semibold">{user?.name}</h2>
                   <p className="text-gray-600">{user?.email}</p>
                   <p className="text-sm text-gray-500 mt-1">
-                    Miembro desde {user?.createdAt ? new Date(user.createdAt as string).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' }) : 'recientemente'}
+                    Miembro desde {user?.createdAt ? new Date(user.createdAt).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' }) : 'recientemente'}
                   </p>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default function PerfilPage() {
                   <div>
                     <p className="font-medium">Miembro desde</p>
                     <p className="text-sm text-gray-600">
-                      {user?.createdAt ? new Date(user.createdAt as string).toLocaleDateString('es-ES') : 'N/A'}
+                      {user?.createdAt ? new Date(user.createdAt).toLocaleDateString('es-ES') : 'N/A'}
                     </p>
                   </div>
                 </div>

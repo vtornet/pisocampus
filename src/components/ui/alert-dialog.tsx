@@ -24,7 +24,7 @@ function AlertDialog({
     <AlertDialogContext.Provider
       value={{
         open,
-        setOpen: onOpenChange || (() => {}),
+        setOpen: (onOpenChange || (() => {})) as any,
       }}
     >
       {children}

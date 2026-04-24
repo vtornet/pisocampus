@@ -218,7 +218,7 @@ export default function ConversationPage() {
                   <MoreVertical className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent>
                 <DropdownMenuItem onClick={() => router.push(`/anuncio/${conversation.listing?.id}`)}>
                   Ver anuncio
                 </DropdownMenuItem>

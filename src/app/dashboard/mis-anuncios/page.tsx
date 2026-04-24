@@ -300,7 +300,7 @@ export default function MisAnunciosPage() {
                               <MoreVertical className="h-4 w-4" />
                             </Button>
                           </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
+                          <DropdownMenuContent>
                             <DropdownMenuItem onClick={() => router.push(`/dashboard/mis-anuncios/${listing.id}/editar`)}>
                               <Edit className="h-4 w-4 mr-2" />
                               Editar

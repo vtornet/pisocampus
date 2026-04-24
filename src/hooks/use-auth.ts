@@ -16,9 +16,9 @@ export function useAuth() {
       name: session.user.name || '',
       role: session.user.role,
       avatar: session.user.image || undefined,
+      createdAt: new Date(),
+      updatedAt: new Date(),
       verified: false,
-      createdAt: session.user.createdAt || new Date(),
-      updatedAt: session.user.updatedAt || new Date(),
     }
   }, [session])
 

@@ -246,10 +246,10 @@ export const alerts = pgTable('alerts', {
 })
 
 // Relations
-export const usersRelations = relations(users, ({ many, one }) => ({
+export const usersRelations = relations(users as any, ({ many, one }) => ({
   advertiser: one(advertisers, {
     fields: [advertisers.userId],
-    references: [users.id],
+    references: [users.id] as any,
   }),
   favorites: many(favorites),
   reviews: many(reviews),

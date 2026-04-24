@@ -151,8 +151,9 @@ export default function FavoritosPage() {
                 </button>
                 <ListingCard
                   listing={{
-                    ...favorite.listing,
+                    ...(favorite.listing as any),
                     status: 'active',
+                    images: favorite.listing.coverImage ? [favorite.listing.coverImage] : [],
                     views: 0,
                     contacts: 0,
                     favorites: 0,

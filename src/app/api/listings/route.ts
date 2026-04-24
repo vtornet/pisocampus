@@ -217,7 +217,6 @@ export async function GET(request: NextRequest) {
         favorites: listings.favorites,
         createdAt: listings.createdAt,
         updatedAt: listings.updatedAt,
-        advertiserId: advertisers.id,
         advertiserName: advertisers.name,
         advertiserUserId: advertisers.userId,
       })

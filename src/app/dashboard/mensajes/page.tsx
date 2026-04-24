@@ -7,6 +7,7 @@ import { ConversationItem } from '@/components/chat/conversation-item'
 import { Card, CardContent } from '@/components/ui/card'
 import { MessageSquare, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
+import { Button } from "@/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
