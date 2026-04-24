@@ -77,7 +77,7 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">¿Por qué usar <span className="text-blue-600">Piso</span><span className="text-green-600">Campu</span>?</h2>
+          <h2 className="text-3xl font-bold mb-4">¿Por qué usar <span className="text-blue-600">Pio</span><span className="text-green-600"> Campus</span>?</h2>
           <p className="text-gray-600 text-lg">
             Todo lo que necesitas para encontrar tu piso ideal
           </p>

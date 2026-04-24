@@ -36,7 +36,7 @@ export function Navbar() {
             className="h-10 w-10 object-contain"
           />
           <span className="hidden font-bold sm:inline-block">
-            <span className="text-blue-600">Piso</span><span className="text-green-600">Campu</span>
+            <span className="text-blue-600">Pio</span><span className="text-green-600"> Campus</span>
           </span>
         </Link>
 

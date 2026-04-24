@@ -83,7 +83,7 @@ export default function RegisterPage() {
             className="h-12 w-12 object-contain"
           />
           <span className="text-2xl font-bold">
-            <span className="text-blue-600">Piso</span><span className="text-green-600">Campu</span>
+            <span className="text-blue-600">Pio</span><span className="text-green-600"> Campus</span>
           </span>
         </Link>
 
