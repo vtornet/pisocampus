@@ -17,7 +17,6 @@ const nextConfig = {
     ],
     formats: ['image/avif', 'image/webp'],
   },
-  turbopack: {}, // Habilita Turbopack explícitamente
 }
 
 module.exports = withPWA(nextConfig)
